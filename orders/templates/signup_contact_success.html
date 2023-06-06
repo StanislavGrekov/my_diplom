@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>Регистрация прошла успешно</title>
+</head>
+<body>
+    {% for element in user_info %}
+    <h2>{{ element.first_name }} {{ element.last_name }} поздравляем, регистрация прошла успешно.</h2>
+    {% endfor %}
+    Для входа в сервис пройдите по ссылке: <a href="{%url 'login'%}"><button> Вход </button></a>
+
+</body>
+</html>
+

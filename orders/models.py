@@ -67,10 +67,8 @@ class Contact(models.Model):
     street = models.CharField(max_length=100, verbose_name='Улица', null=True, default=None)
     house = models.CharField(max_length=15, verbose_name='Дом', null=True, default=None)
     structure = models.CharField(max_length=15, verbose_name='Корпус', null=True, default=None)
-    building = models.CharField(max_length=15, verbose_name='Строение', null=True, default=None)
     apartment = models.CharField(max_length=15, verbose_name='Квартира', null=True, default=None)
     phone = models.CharField(max_length=20, verbose_name='Телефон', null=True, default=None)
-    email = models.EmailField(max_length=100, verbose_name='Эл.адрес')
     provider = models.BooleanField(verbose_name='Поставщик', default=True)
 
 
