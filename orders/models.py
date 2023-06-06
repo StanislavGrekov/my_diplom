@@ -81,8 +81,9 @@ class Contact(models.Model):
 
 
 class Shop(models.Model):
-    name = models.ForeignKey(Contact, verbose_name='Название магазина',
-                             related_name='contact_info', blank=True,
+    name = models.CharField(max_length=50, verbose_name='Название')
+    user = models.ForeignKey(Contact, verbose_name='Название магазина',
+                             related_name='user_info',
                              on_delete=models.CASCADE)
     state = models.BooleanField(verbose_name='статус получения заказов', default=True)
 

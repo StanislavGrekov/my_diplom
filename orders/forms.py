@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as log_in, authenticate
-from orders.models import Contact
+from orders.models import Contact, Shop
 
 
 class LoginForm(forms.Form):
@@ -101,8 +101,10 @@ def registration_contact(request):
             contact = Contact.objects.create(user_id=user_id, organization=organization,  city=city, street=street,
                                              house=house,  structure=structure, apartment=apartment,  phone=phone,  provider=provider)
 
-            contact.save()
             user_info = User.objects.filter(id=user_id)
+
+            if provider == True:
+                Shop.objects.create(name=organization, state=False, user_id=contact.id)
 
             return render(request, 'signup_contact_success.html', {'user_info': user_info})
     else:
